@@ -7,8 +7,8 @@ import javax.persistence.Id;
 public class Account {
 
     @Id
-    String fullName;
-    String email;
-    int phone;
-    String location;
+    private String fullName;
+    private String email;
+    private int phone;
+    private String location;
 }
