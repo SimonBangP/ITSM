@@ -1,9 +1,6 @@
 package com.example.itsm.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Case {
@@ -12,8 +9,21 @@ public class Case {
     int caseid;
     String title;
     String description;
+    @OneToOne(fetch = FetchType.EAGER)
+            Account user;
+    @OneToOne(fetch = FetchType.EAGER)
+            Account caseWorker;
     int priority;
     String status;
+    @ManyToOne(fetch = FetchType.EAGER)
+    Comment[] internalComment;
+    @ManyToOne(fetch = FetchType.EAGER)
+    Comment[] externalComment;
+
+    @OneToOne
+    CaseTimeFrame timeFrame;
+
+
 
 
 }
