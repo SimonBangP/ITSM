@@ -7,4 +7,5 @@ import java.time.LocalDateTime;
 
 public interface CommentRepository extends JpaRepository <Comment, LocalDateTime> {
 
+
 }
