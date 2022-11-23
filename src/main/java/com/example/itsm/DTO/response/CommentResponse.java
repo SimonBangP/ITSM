@@ -17,14 +17,14 @@ public class CommentResponse {
 private LocalDateTime timeStamp;
 private Account user;
 private String description;
-private String important;
+private boolean important;
 
 
 public CommentResponse (Comment com){
     this.timeStamp = com.getTimeStamp();
     this.user = com.getUser();
     this.description = com.getDescription();
-    this.important = com.getImportant();
+    this.important = com.isImportant();
 }
 
 }
