@@ -5,6 +5,7 @@ import com.example.itsm.Entity.Case;
 import com.example.itsm.Entity.CaseTimeFrame;
 import com.example.itsm.Entity.Comment;
 import com.example.itsm.Repository.AccountRepository;
+import com.example.itsm.Repository.CaseTimeFrameRepository;
 import com.example.itsm.Repository.CommentRepository;
 import com.example.itsm.Service.AccountService;
 import com.example.itsm.Service.CommentService;
@@ -27,6 +28,9 @@ public class SetupWorkEnvironment implements ApplicationRunner {
     @Autowired
     CommentRepository commentRepository;
 
+    @Autowired
+    CaseTimeFrameRepository caseTimeFrameRepository;
+
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -43,8 +47,6 @@ public class SetupWorkEnvironment implements ApplicationRunner {
 
 
         Case casee = new Case(1, "test", "test", acc, acc, 1, "quo", comments, comments, caseTimeFrame);
-
-
 
     }
 }
