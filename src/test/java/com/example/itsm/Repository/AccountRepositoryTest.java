@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
@@ -32,4 +34,29 @@ class AccountRepositoryTest  {
         assertEquals(2, accountRepository.count());
     }
 
+    @Test
+    public void findbyFullname(){
+        Optional<Account> account = accountRepository.findAccountByFullName("test");
+
+        assertEquals(false ,account.isEmpty());
+    }
+
+    @Test
+    public void editAccount(){
+        Optional<Account> account = accountRepository.findAccountByFullName("test");
+
+        account.get().setPhone(1234);
+
+        Optional<Account> edited = accountRepository.findAccountByFullName("test");
+
+
+        assertEquals(1234, edited.get().getPhone());
+    }
+
+    @Test
+    public void deleteAccount(){
+        accountRepository.deleteAccountByFullName("test");
+
+        assertEquals(true, accountRepository.findAccountByFullName("test").isEmpty());
+    }
 }
