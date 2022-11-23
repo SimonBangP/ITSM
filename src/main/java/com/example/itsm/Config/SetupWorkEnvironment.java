@@ -48,5 +48,7 @@ public class SetupWorkEnvironment implements ApplicationRunner {
 
         Case casee = new Case(1, "test", "test", acc, acc, 1, "quo", comments, comments, caseTimeFrame);
 
+
+       caseTimeFrameRepository.save(caseTimeFrame);
     }
 }
