@@ -1,27 +1,22 @@
-package com.example.itsm.Entity;
+package com.example.itsm.DTO.request;
 
-import lombok.AllArgsConstructor;
+import com.example.itsm.Entity.Account;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-public class Comment {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class CommentRequest {
 
-    @Id
+
     private LocalDateTime localDateTime;
-    @ManyToOne
     private Account user;
     private String description;
     boolean important;
-
 }

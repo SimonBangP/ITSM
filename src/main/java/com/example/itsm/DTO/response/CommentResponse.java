@@ -14,14 +14,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CommentResponse {
 
-private LocalDateTime timeStamp;
+private LocalDateTime localDateTime;
 private Account user;
 private String description;
 private boolean important;
 
 
 public CommentResponse (Comment com){
-    this.timeStamp = com.getTimeStamp();
+    this.localDateTime = com.getLocalDateTime();
     this.user = com.getUser();
     this.description = com.getDescription();
     this.important = com.isImportant();
